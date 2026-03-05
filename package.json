@@ -1,6 +1,6 @@
 {
   "name": "@cryptoapis-io/mcp-blockchain-fees",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "MCP server for fee recommendations and gas estimation on EVM, UTXO, and XRP blockchains via Crypto APIs",
   "license": "MIT",
   "author": "Crypto APIs, Inc.",
@@ -8,6 +8,7 @@
     "type": "git",
     "url": "https://github.com/CryptoAPIs-io/cryptoapis-mcp-blockchain-fees.git"
   },
+  "mcpName": "io.github.CryptoAPIs-io/mcp-blockchain-fees",
   "keywords": [
     "mcp",
     "cryptoapis",
@@ -26,7 +27,8 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "server.json"
   ],
   "bin": {
     "cryptoapis-mcp-blockchain-fees": "dist/cli.js"
