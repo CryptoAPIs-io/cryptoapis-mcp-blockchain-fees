@@ -1,4 +1,4 @@
-import type { CryptoApisHttpClient, RequestResult } from "@cryptoapis-io/mcp-shared";
+import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { EvmFeesToolSchema, type EvmFeesToolInput } from "./schema.js";
 import * as api from "../../api/evm-fees/index.js";
@@ -26,7 +26,7 @@ Actions:
         "estimate-contract-interaction-gas": contractGasCredits,
     },
     inputSchema: EvmFeesToolSchema,
-    handler: (client: CryptoApisHttpClient) => async (input: EvmFeesToolInput) => {
+    handler: (client: CryptoApisHttpClient, logger: McpLogger) => async (input: EvmFeesToolInput) => {
         const base = { blockchain: input.blockchain, network: input.network, context: input.context };
         let result: RequestResult<unknown>;
         switch (input.action) {
@@ -45,7 +45,10 @@ Actions:
             case "estimate-contract-interaction-gas":
                 result = await api.estimateContractInteractionGas(client, { ...base, sender: input.fromAddress!, recipient: input.contractAddress!, inputData: input.data!, amount: input.value ?? "0" });
                 break;
+            default:
+                throw new Error(`Unknown action: ${(input as EvmFeesToolInput).action}`);
         }
+        logger.logInfo({ tool: "blockchain_fees_evm", action: input.action, blockchain: input.blockchain, network: input.network, creditsConsumed: result.creditsConsumed, creditsAvailable: result.creditsAvailable, responseTime: result.responseTime, throughputUsage: result.throughputUsage });
         return { content: [{ type: "text", text: JSON.stringify({ ...(result.data as object), creditsConsumed: result.creditsConsumed, creditsAvailable: result.creditsAvailable, responseTime: result.responseTime, throughputUsage: result.throughputUsage }) }] };
     },
 };
