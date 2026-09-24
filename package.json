@@ -1,7 +1,7 @@
 {
   "name": "@cryptoapis-io/mcp-blockchain-fees",
-  "version": "0.3.0",
-  "description": "MCP server for fee recommendations and gas estimation on EVM, UTXO, XRP via Crypto APIs",
+  "version": "0.5.0",
+  "description": "MCP server for fee recommendations and gas estimation on EVM, UTXO, XRP, Tezos, Solana via Crypto APIs",
   "license": "MIT",
   "author": "Crypto APIs, Inc.",
   "repository": {
@@ -17,7 +17,9 @@
     "gas-estimation",
     "evm",
     "utxo",
-    "xrp"
+    "xrp",
+    "tezos",
+    "solana"
   ],
   "publishConfig": {
     "access": "public"
@@ -34,9 +36,8 @@
     "cryptoapis-mcp-blockchain-fees": "dist/cli.js"
   },
   "dependencies": {
-    "@cryptoapis-io/mcp-shared": "^0.3.0",
+    "@cryptoapis-io/mcp-shared": "^0.4.0",
     "@modelcontextprotocol/sdk": "^1.27.1",
-    "express": "^4.22.1",
     "zod": "^3.25.0"
   },
   "scripts": {
@@ -48,7 +49,6 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
-    "@types/express": "^5.0.6",
     "@types/node": "^25.0.3",
     "typescript": "^5.5.4"
   }

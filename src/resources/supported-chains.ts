@@ -81,4 +81,28 @@ export const supportedChains: SupportedChainsResource = {
             "get-fee-recommendations": ["xrp"],
         },
     },
+    tezos: {
+        blockchains: ["tezos"],
+        networks: {
+            tezos: ["mainnet", "shadownet"],
+        },
+        actions: {
+            "get-fee-recommendations": ["tezos"],
+            "estimate-transfer": ["tezos"],
+            "estimate-fa12-transfer": ["tezos"],
+            "estimate-fa2-transfer": ["tezos"],
+        },
+    },
+    solana: {
+        blockchains: ["solana"],
+        networks: {
+            solana: ["mainnet", "devnet"],
+        },
+        actions: {
+            "get-fee-recommendations": ["solana"],
+            "estimate-native-coin-transfer-compute-units": ["solana"],
+            "estimate-token-transfer-compute-units": ["solana"],
+            "estimate-program-invocation-compute-units": ["solana"],
+        },
+    },
 };
