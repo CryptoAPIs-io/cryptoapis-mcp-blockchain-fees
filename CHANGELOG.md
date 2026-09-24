@@ -1,5 +1,11 @@
 # @cryptoapis-io/mcp-blockchain-fees
 
+## 0.5.1
+
+### Patch Changes
+
+- dbfbb0a: `blockchain_fees_tezos` `estimate-fa2-transfer`: `tokenId` is now an integer string (e.g. `"0"`). It was typed as a number, which the API rejects with `invalid_data: Required value type is string`, so every FA2 estimate that passed a token ID failed.
+
 ## 0.5.0
 
 ### Minor Changes

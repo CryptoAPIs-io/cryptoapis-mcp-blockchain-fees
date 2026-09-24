@@ -33,10 +33,10 @@ export const TezosFeesToolSchema = z
             .optional()
             .describe("FA1.2/FA2 token contract address - required for estimate-fa12-transfer, estimate-fa2-transfer"),
         tokenId: z
-            .number()
-            .int()
+            .string()
+            .regex(/^\d+$/, "tokenId must be a non-negative integer string, e.g. \"0\"")
             .optional()
-            .describe("FA2 token ID - estimate-fa2-transfer only"),
+            .describe('FA2 token ID as an integer STRING (e.g. "0") - estimate-fa2-transfer only; the API rejects a number'),
     })
     .merge(RequestMetadataSchema);
 

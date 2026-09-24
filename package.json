@@ -1,6 +1,6 @@
 {
   "name": "@cryptoapis-io/mcp-blockchain-fees",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "MCP server for fee recommendations and gas estimation on EVM, UTXO, XRP, Tezos, Solana via Crypto APIs",
   "license": "MIT",
   "author": "Crypto APIs, Inc.",

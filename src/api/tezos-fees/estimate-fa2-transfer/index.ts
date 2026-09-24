@@ -6,7 +6,7 @@ export type EstimateFa2TransferFeeInput = {
     recipient: string;
     contractAddress: string;
     amount: string;
-    tokenId?: number;
+    tokenId?: string;
     senderPublicKey?: string;
 } & RequestMetadata;
 
