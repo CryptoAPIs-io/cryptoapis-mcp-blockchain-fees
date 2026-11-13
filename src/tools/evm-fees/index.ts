@@ -1,3 +1,4 @@
+import { READ_ONLY_TOOL } from "@cryptoapis-io/mcp-shared";
 import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { EvmFeesToolSchema, type EvmFeesToolInput } from "./schema.js";
@@ -10,6 +11,8 @@ import { credits as contractGasCredits } from "./estimate-contract-interaction-g
 
 export const evmFeesTool: McpToolDef<typeof EvmFeesToolSchema> = {
     name: "blockchain_fees_evm",
+    title: "EVM fee and gas estimates",
+    annotations: READ_ONLY_TOOL,
     description: `Get fee recommendations and estimate gas costs for EVM blockchains. Use this before preparing or signing a transaction to determine appropriate gas parameters.
 
 Actions:

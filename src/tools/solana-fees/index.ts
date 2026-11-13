@@ -1,3 +1,4 @@
+import { READ_ONLY_TOOL } from "@cryptoapis-io/mcp-shared";
 import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { SolanaFeesToolSchema, type SolanaFeesToolInput } from "./schema.js";
@@ -17,6 +18,8 @@ Actions:
 
 export const solanaFeesTool: McpToolDef<typeof SolanaFeesToolSchema> = {
     name: "blockchain_fees_solana",
+    title: "Solana fee and compute unit estimates",
+    annotations: READ_ONLY_TOOL,
     description: SOLANA_FEES_DESCRIPTION,
     credits: {
         "get-fee-recommendations": recCredits,

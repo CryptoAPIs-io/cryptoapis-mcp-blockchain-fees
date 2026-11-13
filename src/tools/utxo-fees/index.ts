@@ -1,3 +1,4 @@
+import { READ_ONLY_TOOL } from "@cryptoapis-io/mcp-shared";
 import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { UtxoFeesToolSchema, type UtxoFeesToolInput } from "./schema.js";
@@ -7,6 +8,8 @@ import { credits as estCredits } from "./estimate-transaction-smart-fee/credits.
 
 export const utxoFeesTool: McpToolDef<typeof UtxoFeesToolSchema> = {
     name: "blockchain_fees_utxo",
+    title: "UTXO fee recommendations",
+    annotations: READ_ONLY_TOOL,
     description: `Get fee recommendations for UTXO blockchains (bitcoin, bitcoin-cash, litecoin, dogecoin, dash, zcash). Use this before preparing or signing a transaction to determine the appropriate fee rate.
 
 Actions:

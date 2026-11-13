@@ -1,3 +1,4 @@
+import { READ_ONLY_TOOL } from "@cryptoapis-io/mcp-shared";
 import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { TezosFeesToolSchema, type TezosFeesToolInput } from "./schema.js";
@@ -17,6 +18,8 @@ Actions:
 
 export const tezosFeesTool: McpToolDef<typeof TezosFeesToolSchema> = {
     name: "blockchain_fees_tezos",
+    title: "Tezos fee estimates",
+    annotations: READ_ONLY_TOOL,
     description: TEZOS_FEES_DESCRIPTION,
     credits: {
         "get-fee-recommendations": recCredits,

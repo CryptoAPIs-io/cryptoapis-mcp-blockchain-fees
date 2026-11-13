@@ -1,3 +1,4 @@
+import { READ_ONLY_TOOL } from "@cryptoapis-io/mcp-shared";
 import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { XrpFeesToolSchema, type XrpFeesToolInput } from "./schema.js";
@@ -6,6 +7,8 @@ import { credits as recCredits } from "./credits.js";
 
 export const xrpFeesTool: McpToolDef<typeof XrpFeesToolSchema> = {
     name: "blockchain_fees_xrp",
+    title: "XRP fee recommendations",
+    annotations: READ_ONLY_TOOL,
     description: "Blockchain Fees XRP: get fee recommendations. Networks: mainnet, testnet.",
     credits: recCredits,
     inputSchema: XrpFeesToolSchema,
